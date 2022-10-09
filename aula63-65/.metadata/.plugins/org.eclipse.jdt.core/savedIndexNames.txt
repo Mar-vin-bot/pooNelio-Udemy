@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/home/m12/Documentos/GitHub/poo-nelioUdemy/aula63/.metadata/.plugins/org.eclipse.jdt.core
+3736498414.index
+1865797976.index
+960130750.index

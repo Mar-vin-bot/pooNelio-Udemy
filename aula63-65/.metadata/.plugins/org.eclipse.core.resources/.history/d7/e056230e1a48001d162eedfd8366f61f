@@ -1,0 +1,20 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		Triangulo x, y;
+		x = new Triangulo();
+		y = new Triangulo();
+		
+		double areaX = x.area();
+		double areaY = y.area();
+
+	}
+
+}
