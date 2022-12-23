@@ -16,9 +16,10 @@ public class Worker {
 	private Departament dpto;
 
 	// 1 worker tem varios contratos List
+	//quando houver um atributo list, não faça a instanciação pelo construtor mas sim direto no atributo
 	private List<HourContract> contracts = new ArrayList<>();
 
-	public Worker(String name, WorkerLevel level, Double baseSalary, Departament dpto, List<HourContract> contracts) {
+	public Worker(String name, WorkerLevel level, Double baseSalary, Departament dpto) {
 		this.name = name;
 		this.level = level;
 		this.baseSalary = baseSalary;
@@ -60,13 +61,13 @@ public class Worker {
 	public void setDpto(Departament dpto) {
 		this.dpto = dpto;
 	}
+	
+	public List<HourContract> getContracts() {
+		return contracts;
+	}
 
 	public void addContract(HourContract contract) {
 		contracts.add(contract);
-	}
-
-	public List<HourContract> getContracts() {
-		return contracts;
 	}
 
 	public void removeContract(HourContract contract) {
@@ -76,10 +77,13 @@ public class Worker {
 	public double income(int year, int month) {
 		double sum = baseSalary;
 		Calendar cal = Calendar.getInstance();
+		
 		for (HourContract c : contracts) {
 			cal.setTime(c.getDate());
+			
 			int c_year = cal.get(Calendar.YEAR);
 			int c_month = 1 + cal.get(Calendar.MONTH); // janeiro = 0;
+			
 			if (year == c_year && month == c_month) {
 				sum += c.totalValue();
 			}
