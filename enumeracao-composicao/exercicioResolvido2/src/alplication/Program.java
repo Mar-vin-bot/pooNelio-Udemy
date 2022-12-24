@@ -25,7 +25,20 @@ public class Program {
 		p1.addComment(c1);
 		p1.addComment(c2);
 		
+		Comments c3 = new Comments("Good night");
+		Comments c4 = new Comments("May the Force be with you");
+		
+		Post p2 = new Post(
+				sdf.parse("25/12/2022 08:13:47"), 
+				"Good night guys ", 
+				"See you tomorrow", 5);
+		
+		
+		p2.addComment(c3);
+		p2.addComment(c4);
+		
 		System.out.println(p1);
+		System.out.println(p2);
 
 	}
 

@@ -86,6 +86,7 @@ public class Post {
 		sb.append(sdf.format(moment) + "\n");
 		sb.append(content + "\n");
 		sb.append("Comments:\n");
+		
 		for (Comments c : comments) {
 			sb.append(c.getText() + "\n");
 		}
