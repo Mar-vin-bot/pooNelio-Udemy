@@ -9,7 +9,7 @@ import entities.enums.OrderStaus;
 
 public class Order {
 	
-	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	
 	private Date moment;
 	private OrderStaus status;
@@ -44,8 +44,7 @@ public class Order {
 	public Client getClient() {
 		return client;
 	}
-
-
+	
 	public void addItem(OrdemItem item) {
 		items.add(item);
 	}
@@ -71,7 +70,7 @@ public class Order {
 	sb.append("Order status ");
 	sb.append(status +"\n");
 	sb.append("Client ");
-	sb.append(client.getNome()+" "+client.getBirthDate()+" "+client.getEmail()+"\n");
+	sb.append(client+"\n");
 	sb.append("Ordem Itens \n");
 	
 	for(OrdemItem x : items) {

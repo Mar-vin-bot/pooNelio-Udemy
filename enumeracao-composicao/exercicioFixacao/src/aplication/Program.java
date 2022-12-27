@@ -3,6 +3,7 @@ package aplication;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Client;
@@ -15,6 +16,7 @@ public class Program {
 
 	public static void main(String[] args) throws ParseException {
 		
+		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
@@ -30,10 +32,11 @@ public class Program {
 		
 		
 		System.out.println("Enter order Data");
-		System.out.print	("Status ");
+		System.out.print("Status ");
 		OrderStaus status = OrderStaus.valueOf(sc.next());
 		
 		Order order  = new Order (new Date(), status, client);
+		
 		
 		System.out.println("How many to this order");
 		int n = sc.nextInt();
@@ -61,6 +64,9 @@ public class Program {
 		System.out.println();
 		System.out.println(order);
 
+		
+		
+		
 	}
 
 }
