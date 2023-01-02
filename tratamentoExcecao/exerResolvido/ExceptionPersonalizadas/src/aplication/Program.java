@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 import model.entities.Reservation;
+import model.exception.DomainException;
 
 public class Program {
 
@@ -22,33 +23,35 @@ public class Program {
 		try {
 		System.out.print("Room number:");
 		int room = sc.nextInt();
-		System.out.println("Check-in date: ");
+		System.out.print("Check-in date: ");
 		Date in = sdf.parse(sc.next());
-		System.out.println("Check-out date: ");
+		System.out.print("Check-out date: ");
 		Date out = sdf.parse(sc.next());
 
-		
-
+		//instancia da reservation
 		Reservation reservetion = new Reservation(room, in, out);
-		System.out.println("Reservaton " + reservetion);
+		System.out.println("Reservaton " + reservetion.toString());
 
+		//update reservation
 		System.out.println();
-		
 		System.out.println("Enter data to update the reservation:");
-		System.out.println("Check-in date: ");
+		System.out.print("Check-in date: ");
 		in = sdf.parse(sc.next());
-		System.out.println("Check-out date: ");
+		System.out.print("Check-out date: ");
 		out = sdf.parse(sc.next());
 		
+		//set update reservation and print update
 		reservetion.updateDates(in, out);
 		System.out.println("Reservaton " + reservetion);
-		
 		}
+		
+		//catch exigido pelo SimpleDateFormat
 		catch(ParseException e) {
 			System.out.println("Enter with valid date ");
 		}
-		catch(IllegalArgumentException e) {
-			System.out.println("Error reservation "+ e.getMessage());
+		//catch com class exception caso algum if do update seja validado
+		catch(DomainException e) {
+			System.out.println("Error reservation: "+ e.getMessage());
 		}
 
 	}
