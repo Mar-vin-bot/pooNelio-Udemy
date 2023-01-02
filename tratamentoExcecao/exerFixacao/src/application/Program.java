@@ -38,6 +38,9 @@ public class Program {
 		catch (AccountException e) {
 			System.out.println("Withdraw error: "+e.getMessage());
 		}
+		catch (RuntimeException e) {
+			System.out.println("Exception not prevised");
+		}
 		
 		
 		

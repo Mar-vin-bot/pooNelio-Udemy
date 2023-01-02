@@ -38,7 +38,7 @@ public class Account {
 		ballance += amout;
 	}
 	
-	public void withDraw(double amout) throws AccountException  {
+	public void withDraw(double amout) {
 		if(amout > withDrawLimit) {
 			throw new AccountException ("The amount exceeds withdraw limit");
 		}
