@@ -3,6 +3,7 @@ package aplication;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import model.entities.Reservation;
@@ -52,6 +53,9 @@ public class Program {
 		//catch com class exception caso algum if do update seja validado
 		catch(DomainException e) {
 			System.out.println("Error reservation: "+ e.getMessage());
+		}
+		catch (RuntimeException e) {
+			System.out.println("Unexpectd error");
 		}
 
 	}
