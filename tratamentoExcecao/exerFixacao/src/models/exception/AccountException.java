@@ -6,6 +6,4 @@ public class AccountException extends RuntimeException {
 	public AccountException(String mgn) {
 		super(mgn);
 	}
-
-	
 }

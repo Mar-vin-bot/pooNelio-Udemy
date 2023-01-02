@@ -38,14 +38,18 @@ public class Account {
 		ballance += amout;
 	}
 	
-	public void withDraw(double amout) {
-		if(amout > withDrawLimit) {
+	public void withDraw(double amount) {
+		validWithDraw(amount);
+		ballance -= amount;
+	}
+	
+	private void validWithDraw(double amount) {
+		if(amount > withDrawLimit) {
 			throw new AccountException ("The amount exceeds withdraw limit");
 		}
-		if(amout > ballance ) {
+		if(amount > ballance ) {
 			throw new AccountException ("Not enough balance");
 		}
-		ballance -= amout;
-	}	
+	}
 
 }
