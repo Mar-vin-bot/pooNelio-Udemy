@@ -24,8 +24,11 @@ public class ContractService {
 			 double valueParcela = auxValueParcelas + auxFee + auxJuros;
 			 
 			 contract.getInstallment().add(new Installment(auxDate, valueParcela));
+			 /*
+			  * o array no contract de parcelas recebe os obj de Installment com data e valores ja processados
+			  */
+			
 		}
 
 	}
-
 }

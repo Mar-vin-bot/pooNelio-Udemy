@@ -10,7 +10,7 @@ public class Contract {
 	private LocalDate dataContrato;
 	private Double totalValue;
 	
-	//contrato ter varias parcelas
+	//contrato tem varias parcelas
 	private List<Installment> installment = new ArrayList<>();
 
 	public Contract(Integer number, LocalDate dataContrato, Double totalValue) {

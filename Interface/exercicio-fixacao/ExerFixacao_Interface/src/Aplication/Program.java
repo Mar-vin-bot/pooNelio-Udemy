@@ -19,28 +19,32 @@ public class Program {
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
-		System.out.println("Entre com os dados do contrato :");
-		System.out.print("Numero :");
+		System.out.println("Entre com os dados do contrato: ");
+		System.out.print("Numero: ");
 		int number = sc.nextInt();
-		System.out.print("Data dd/mm/yyy :");
+		System.out.print("Data dd/mm/yyy: ");
 		LocalDate  dateContract = LocalDate.parse(sc.next(), dtf);
-		System.out.print("Valor do contrato :");
+		System.out.print("Valor do contrato: ");
 		double value = sc.nextDouble();
 		
 		Contract contract = new Contract(number, dateContract, value);
 		
 		
-		System.out.print("Entre com o numero de parcelas :");
+		System.out.print("Entre com o numero de parcelas: ");
 		int nPar = sc.nextInt();
 		
 		
 		ContractService service = new ContractService(new PaypalService());
+		/*
+		 * fazendo o cast usando a classe Concreta PaypalService que recebe a implementação de 
+		 * OnlinePaymentService (interface)
+		 */
 		
 		service.processContract(contract, nPar);
 		
 		
-		
-		
+
+	
 		System.out.println();
 		System.out.println("Installments :");
 		
@@ -48,10 +52,10 @@ public class Program {
 			System.out.println(element);
 		}
 		
-		
-		
-		
-		
+		/*
+		 * no metodo processContract é add no atributo LIST getInstallment os dados por parcela
+		 */
+			
 		
 		sc.close();
 	}
