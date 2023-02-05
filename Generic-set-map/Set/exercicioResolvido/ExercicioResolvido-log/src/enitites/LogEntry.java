@@ -46,6 +46,11 @@ public class LogEntry  {
 		return Objects.equals(user, other.user);
 	}
 
+	@Override
+	public String toString() {
+		return  user + ", " + moment;
+	}
+
 
 
 }

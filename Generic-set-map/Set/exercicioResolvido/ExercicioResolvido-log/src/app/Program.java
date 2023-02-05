@@ -13,13 +13,19 @@ import enitites.LogEntry;
 public class Program {
 	public static void main(String[] args) {
 
-		Set<LogEntry> set = new HashSet<>();
-
 		String path = "/home/m12/Documentos/GitHub/poo-nelioUdemy/Generic-set-map/Set/exercicioResolvido/log.csv";
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
+			Set<LogEntry> set = new HashSet<>();
+			/*
+			 *usado o hashset pois ele é o mais rapido e a ordem não importa 
+			 * no momento da inserção usuarios repetidos são barrados assim o size é suficiente p/ saber qtd
+			 */
+			
+
 			String line = br.readLine();
+
 			while (line != null) {
 				String[] fields = line.split(",");
 				set.add(new LogEntry(fields[0], Date.from(Instant.parse(fields[1]))));
@@ -27,7 +33,12 @@ public class Program {
 				line = br.readLine();
 			}
 
-			System.out.println("Número de usuarios distintos: " + set.size());
+			System.out.println("Total de usuários: " + set.size());
+			System.out.println();
+			
+			for(LogEntry element : set) {
+				System.out.println(element);
+			}
 
 		} catch (IOException e) {
 			System.out.println("Eror " + e.getMessage());
