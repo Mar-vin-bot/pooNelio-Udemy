@@ -27,8 +27,8 @@ public class Program {
 				int cont = Integer.parseInt(fields[1]);
 
 				if (map.containsKey(name)) {
-					int aux = map.get(name);
-					map.put(name, cont + aux);
+					int aux = cont + map.get(name);
+					map.put(name, aux);
 
 				} else {
 					map.put(name, cont);
