@@ -17,8 +17,8 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		//primeira solução
-		list.removeIf(new ProductPredicate());
+		//segunda solução metodo statico
+		list.removeIf(Product :: staticProductPredicate);
 		
 		for(Product el : list) {
 			System.out.println(el);
