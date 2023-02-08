@@ -25,9 +25,12 @@ public class Program {
 		*/	
 		
 		//pode resumur tirando chaves e return
-		Comparator<Product> comp = (p1, p2) ->  p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
-		p.sort(comp);
+		//Comparator<Product> comp = (p1, p2) ->  p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+		//p.sort(comp);
 		
+		
+		//tbm podemos resumir como
+		p.sort((p1, p2) ->  p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
 
 		
 		
