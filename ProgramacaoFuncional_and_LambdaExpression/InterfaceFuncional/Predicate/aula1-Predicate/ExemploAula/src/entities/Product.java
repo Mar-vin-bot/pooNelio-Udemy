@@ -22,8 +22,9 @@ public class Product {
 		this.price = price;
 	}
 	
-	public static boolean staticProductPredicate(Product p) {
-		return p.getPrice() >= 100; 
+	//metodo não statico
+	public  boolean productPredicate() {
+		return getPrice() >= 100; 
 	}
 	
 	@Override
