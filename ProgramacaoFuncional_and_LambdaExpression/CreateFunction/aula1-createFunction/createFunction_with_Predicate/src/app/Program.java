@@ -19,7 +19,7 @@ public class Program {
 		
 		ProductService ps = new ProductService();
 		
-		double saida = ps.filterPrice(prod);
+		double saida = ps.filterPrice(prod, x -> x.getName().charAt(0) == 'T' );
 		
 		System.out.println(saida);
 
