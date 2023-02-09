@@ -19,9 +19,20 @@ public class Program {
 		
 		ProductService ps = new ProductService();
 		
-		double saida = ps.filterPrice(prod, x -> x.getName().charAt(0) == 'T' );
+		double sum = ps.filterPrice(prod, x -> x.getName().charAt(0) == 'T' );
 		
-		System.out.println(saida);
+		
+		List<Product> listP = new ArrayList<>();
+		
+		
+		listP = (ps.filterName(prod, x -> x.getName().charAt(0) == 'T' ));
+		
+		System.out.println(sum);
+		//System.out.println((ps.filterName(prod, x -> x.getName().charAt(0) == 'T' )));
+		
+		for(Product x: listP) {
+			System.out.println(x);
+		}
 
 	}
 

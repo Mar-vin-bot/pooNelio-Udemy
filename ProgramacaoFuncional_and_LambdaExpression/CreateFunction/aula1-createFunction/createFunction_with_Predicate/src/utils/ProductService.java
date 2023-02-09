@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -15,6 +16,17 @@ public class ProductService {
 			}
 		}
 		return sum;
+	}
+	
+	public List<Product> filterName(List<Product> prod, Predicate<Product> condicaoName) {
+		List <Product> element = new ArrayList<>();
+		
+		for(Product el : prod) {
+			if(condicaoName.test(el)) {
+				element.add(new Product(el.getName(), el.getPrice()));
+			}
+		}
+		return element;
 	}
 	
 }
