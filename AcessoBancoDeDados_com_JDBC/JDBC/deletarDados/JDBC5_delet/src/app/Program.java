@@ -4,9 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
-
 import db.DB;
+import db.DbIntegrityException;
 
 public class Program {
 
@@ -19,20 +18,19 @@ public class Program {
 			conn = DB.getConnection();
 			
 			st = conn.prepareStatement(
-					"UPDATE seller "+
-					"SET BaseSalary = BaseSalary + ? " +
-					"WHERE (DepartmentId = ?) "
+					"DELETE FROM department "+
+					"WHERE Id = ? "
 					 );
 			
-			st.setDouble(1, 200.51);
-			st.setInt(2, 1);
+			st.setInt(1, 6); //need be dpto without seller 
 			
 			int rowsAffected = st.executeUpdate();
 			
 			System.out.println("Done "+rowsAffected);
 					
 		}catch (SQLException e) {
-			System.out.println("Error "+e.getMessage());
+			throw new DbIntegrityException(e.getMessage());
+			
 		}finally {
 			DB.closeStatement(st);
 			DB.closeConnection();
